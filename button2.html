@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Babel Quickstart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" data-presets="react">
+
+    // class MyThing extends React.Component{
+    //   render() {
+    //     return <div>Hello, world!</div>;
+    //   }
+    // }
+
+    class BSButton extends React.Component{
+      render() {
+        let classNames = ['btn'];
+        if (this.props.type) {
+          classNames.push('btn-' + this.props.type);
+        }
+        return (
+          <button className={classNames.join(' ')}>
+            {this.props.children}
+          </button>
+        );
+      }
+    }
+
+
+    ReactDOM.render(<BSButton type="success">We did it!</BSButton>,
+      document.getElementById('root'));
+
+    </script>
+  </body>
+</html>
